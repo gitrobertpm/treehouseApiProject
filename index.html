@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>API Project</title>
+	<meta charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/myStyles.css" />
+	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+	<link href='https://fonts.googleapis.com/css?family=Lato|Cinzel' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="primeWrap">
+		<header>
+			<div class="headerInnerWrap">
+				<img src="img/movieLogo.svg" alt="Movies Logo">
+				<h1><a href="#">Public API Project</a></h1>
+			</div>
+		</header>	    
+		<div class="mainWrap">
+			<p class="intro">I dig movies, so I chose the <a href="http://www.omdbapi.com/" target="_blank">OMDB (Open Movie Database)</a> to show off my API skills.</p>
+			<p class="intro">Here are a few of my favorites and a search option so you can check out a few of your own.</p>
+			<div id="galleryWrap" class="galleryWrap">
+				<div id="movieWrap0" class="movieWrap">
+					<div id="scrim0" class="scrim">
+						<p class="yourMovie">What is your favorite movie?</p>
+					</div>
+				</div>
+				<div id="movieWrap1" class="movieWrap">
+					<div id="scrim1" class="scrim"></div>
+				</div>
+				<div id="movieWrap2" class="movieWrap">
+					<div id="scrim2" class="scrim"></div>
+				</div>
+				<div id="movieWrap3" class="movieWrap">
+					<div id="scrim3" class="scrim"></div>
+				</div>
+				<div id="movieWrap4" class="movieWrap">
+					<div id="scrim4" class="scrim"></div>
+				</div>
+				<div id="movieWrap5" class="movieWrap">
+					<div id="scrim5" class="scrim"></div>
+				</div>
+				<div id="movieWrap6" class="movieWrap">
+					<div id="scrim6" class="scrim"></div>
+				</div>
+				<div id="movieWrap7" class="movieWrap">
+					<div id="scrim7" class="scrim"></div>
+				</div>
+				<div id="movieWrap8" class="movieWrap">
+					<div id="scrim8" class="scrim"></div>
+				</div>
+				<div id="movieWrap9" class="movieWrap">
+					<div id="scrim9" class="scrim"></div>
+				</div>
+				<div id="movieWrap10" class="movieWrap">
+					<div id="scrim10" class="scrim"></div>
+				</div>
+				<div id="movieWrap11" class="movieWrap">
+					<div id="scrim11" class="scrim"></div>
+				</div>
+				<div id="movieWrap12" class="movieWrap">
+					<div id="scrim12" class="scrim"></div>
+				</div>
+				<div id="movieWrap13" class="movieWrap">
+					<div id="scrim13" class="scrim"></div>
+				</div>
+				<div id="movieWrap14" class="movieWrap">
+					<div id="scrim14" class="scrim"></div>
+				</div>
+				<div id="movieWrap15" class="movieWrap">
+					<div id="scrim15" class="scrim"></div>
+				</div>
+			</div>	
+			<div class="modalWrap" id="modalWrap">
+				<div class="modalInnerWrap">
+					<div id="modal" class="modal">
+						<div id="modalNavWrap" class="modalNavWrap">
+							<div id="arrowWrapLeft" class="arrowWrap">
+								<span class="arrow arrowTopLeft"></span>
+								<span class="arrow arrowBottomLeft"></span>
+							</div>
+							<button id="closeModal" class="closeModalBtn">Close</button>
+							<div id="arrowWrapRight" class="arrowWrap">
+								<span class="arrow arrowTopRight"></span>
+								<span class="arrow arrowBottomRight"></span>
+							</div>
+						</div>
+						<form id="movieCerchForm" class="movieCerchForm">
+							<label for="movieCerch">What's your favorite movie?</label>
+							<input type="text" id="movieCerch" class="movieCerch" placeholder="Search" value="">
+							<button id="movieCerchSubmit">Submit</button>
+							<button id="newCerch">New Search</button>
+						</form>
+						<div id="movieInfoWrap">
+							<ul id="movie0" class="movieInfo"></ul>
+							<ul id="movie1" class="movieInfo"></ul>
+							<ul id="movie2" class="movieInfo"></ul>
+							<ul id="movie3" class="movieInfo"></ul>
+							<ul id="movie4" class="movieInfo"></ul>
+							<ul id="movie5" class="movieInfo"></ul>
+							<ul id="movie6" class="movieInfo"></ul>
+							<ul id="movie7" class="movieInfo"></ul>
+							<ul id="movie8" class="movieInfo"></ul>
+							<ul id="movie9" class="movieInfo"></ul>
+							<ul id="movie10" class="movieInfo"></ul>
+							<ul id="movie11" class="movieInfo"></ul>
+							<ul id="movie12" class="movieInfo"></ul>
+							<ul id="movie13" class="movieInfo"></ul>
+							<ul id="movie14" class="movieInfo"></ul>
+							<ul id="movie15" class="movieInfo"></ul>
+							<div id="errorMessage" class="errorMessage">
+								<h2>Nothing to search for yet</h2>
+								<h2>Try typing a movie title into the search field above</h2>
+							</div>
+							<div id="errorMessage2" class="errorMessage">
+								<h2>Something went wrong</h2>
+								<h2>Try typing a movie title into the search field above</h2>
+							</div>
+							<div id="errorMessage3" class="errorMessage">
+								<h2>That title didn't return any valuable info</h2>
+								<h2>Try typing a valid movie title into the search field above</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="footerInnerWrap">
+				<ul>
+					<li>&copy; Robert Manolis, 2015</li>
+					<li>Web Design, Development, art and copy by Robert Manolis</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="js/lib/smoothscroll.js"></script>
+<script type="text/javascript" src="js/lib/classList.min.js"></script>
+<script type="text/javascript" src="js/apiRequests.js"></script>
+<script type="text/javascript" src="js/myScripts.js"></script>
+</body>
+</html>
