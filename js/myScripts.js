@@ -88,7 +88,6 @@ var myWebApiProjectScripts = function() {
 			modalWrap.style.paddingTop = "15px";
 			
 			items.length = 0;
-			poster.length = 0;
 			title.length = 0;
 			
 			$("#movie0").empty();
