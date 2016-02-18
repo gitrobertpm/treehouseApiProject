@@ -89,6 +89,7 @@ var myWebApiProjectScripts = function() {
 			
 			items.length = 0;
 			poster.length = 0;
+			title.length = 0;
 			
 			$("#movie0").empty();
 			movieWrap0.style.background = "none";
@@ -296,6 +297,7 @@ var myWebApiProjectScripts = function() {
 		
 		items.length = 0;
 		poster.length = 0;
+		title.length = 0;
 		
 		$("#movie0").empty();
 		movieWrap0.style.background = "none";
@@ -314,6 +316,7 @@ var myWebApiProjectScripts = function() {
 		
 		items.length = 0;
 		poster.length = 0;
+		title.length = 0;
 		
 		$("#movie0").empty();
 		movieWrap0.style.background = "none";
@@ -333,9 +336,10 @@ var myWebApiProjectScripts = function() {
 			$.each( data, function( key, val ) {
 				if (key === "Title") {
 					items.push( "<li id='" + key + "'><span class='movieTitle'>" + val + "</span></li>" );
+					title.push(val);
 				} else if (key === "Poster") {
 					poster.push( val );
-					items.unshift( "<li id='" + key + "'><img src='" + val + "'></li>" );
+					items.unshift( "<li id='" + key + "'><img src='" + val + "' alt='" + title[0] + "'></li>" );
 				} else {
 					items.push( "<li id='" + key + "'>" + "<span>" + key + "</span>" + ": " + val + "</li>" );
 				}
