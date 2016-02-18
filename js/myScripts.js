@@ -85,6 +85,7 @@ var myWebApiProjectScripts = function() {
 			movieCerchSubmit.style.display = "block";
 			
 			modalNavWrap.classList.toggle("arrowFixed", false);
+			modalWrap.style.paddingTop = "15px";
 			
 			items.length = 0;
 			poster.length = 0;
@@ -160,6 +161,7 @@ var myWebApiProjectScripts = function() {
 		// MAKE RESPONSIVE NAV STICK ON SCROLL
 		if (distance > 45 || distance2 > 45) {
 			modalNavWrap.classList.toggle("arrowFixed", true);
+			modalWrap.style.paddingTop = "75px";
 		}
 	};
 
@@ -225,6 +227,7 @@ var myWebApiProjectScripts = function() {
 
 	var items = [];
 	var poster = [];	
+	var title = [];	
 
 	// HANDLE AJAX ERROR
 	$( document ).ajaxError(function() {
@@ -254,9 +257,10 @@ var myWebApiProjectScripts = function() {
 				$.each( data, function( key, val ) {
 					if (key === "Title") {
 						items.push( "<li id='" + key + "'><span class='movieTitle'>" + val + "</span></li>" );
+						title.push(val);
 					} else if (key === "Poster") {
 						poster.push( val );
-						items.unshift( "<li id='" + key + "'><img src='" + val + "'></img></li>" );
+						items.unshift( "<li id='" + key + "'><img src='" + val + "' alt='" + title[0] + "'></li>" );
 					} else {
 						items.push( "<li id='" + key + "'>" + "<span>" + key + "</span>" + ": " + val + "</li>" );
 					}
@@ -331,7 +335,7 @@ var myWebApiProjectScripts = function() {
 					items.push( "<li id='" + key + "'><span class='movieTitle'>" + val + "</span></li>" );
 				} else if (key === "Poster") {
 					poster.push( val );
-					items.unshift( "<li id='" + key + "'><img src='" + val + "'></img></li>" );
+					items.unshift( "<li id='" + key + "'><img src='" + val + "'></li>" );
 				} else {
 					items.push( "<li id='" + key + "'>" + "<span>" + key + "</span>" + ": " + val + "</li>" );
 				}
