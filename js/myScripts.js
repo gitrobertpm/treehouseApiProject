@@ -340,8 +340,8 @@ var myWebApiProjectScripts = function() {
 					title.push(val);
 				} else if (key === "Poster") {
 					poster.push( val );
-					//localStorage.setItem(title[0], poster[0]);
-					items.unshift( "<li id='" + key + "'><img src='" + poster[0] + "' alt='" + title[0] + "'></li>" );
+					localStorage.setItem(title[0], poster[0]);
+					items.unshift( "<li id='" + key + "'><img src='" + localStorage.getItem(title[0]) + "' alt='" + title[0] + "'></li>" );
 				} else {
 					items.push( "<li id='" + key + "'>" + "<span>" + key + "</span>" + ": " + val + "</li>" );
 				}
