@@ -338,7 +338,7 @@ var myWebApiProjectScripts = function() {
 			// PRINT DATA TO WINDOW
 			for (var i = 0; i < items.length - 6; i++) {
 				idee1.append(items[i]);
-				idee2.style.background = "url('" + poster[0] + "')";
+				idee2.style.backgroundImage = "url('" + poster[0] + "') no-repeat fixed top left";
 			}
 		});
 	};
