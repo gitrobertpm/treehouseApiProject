@@ -172,29 +172,31 @@ var myWebApiProjectScripts = function() {
 	REMOVE SCRIM ON HOVER
 	===============================================*/
 	var scrimScram = function() {
+		
+		if (width > 999) {
+			var scrim = document.getElementsByClassName("scrim");
 
-		var scrim = document.getElementsByClassName("scrim");
-
-		for (var i = 0; i < scrim.length; i++) {
-			
-			scrim[i].marker = i;
-			
-			scrim[i].onmouseover = function() {
-				scrim[this.marker].style.background = "none";
-			}
-			
-			scrim[i].onmouseout = function() {
-				if (this.marker % 2 === 0) {
-					scrim[this.marker].style.background = "webkit-linear-gradient(top left, rgba(50,50,245,0.5), transparent 60%)";
-					scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(50,50,245,0.5), transparent 60%)";
-				} else if (this.marker % 3 === 0) {
-					scrim[this.marker].style.background = "-webkit-linear-gradient(top left, rgba(50,245,50,0.5), transparent 60%)";
-					scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(50,245,50,0.5), transparent 60%)";
-				} else {
-					scrim[this.marker].style.background = "-webkit-linear-gradient(top left, rgba(245,50,50,0.5), transparent 60%)";
-					scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(245,50,50,0.5), transparent 60%)";
+			for (var i = 0; i < scrim.length; i++) {
+				
+				scrim[i].marker = i;
+				
+				scrim[i].onmouseover = function() {
+					scrim[this.marker].style.background = "none";
 				}
-			};
+				
+				scrim[i].onmouseout = function() {
+					if (this.marker % 2 === 0) {
+						scrim[this.marker].style.background = "webkit-linear-gradient(top left, rgba(50,50,245,0.5), transparent 60%)";
+						scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(50,50,245,0.5), transparent 60%)";
+					} else if (this.marker % 3 === 0) {
+						scrim[this.marker].style.background = "-webkit-linear-gradient(top left, rgba(50,245,50,0.5), transparent 60%)";
+						scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(50,245,50,0.5), transparent 60%)";
+					} else {
+						scrim[this.marker].style.background = "-webkit-linear-gradient(top left, rgba(245,50,50,0.5), transparent 60%)";
+						scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(245,50,50,0.5), transparent 60%)";
+					}
+				};
+			}
 		}
 	};
 

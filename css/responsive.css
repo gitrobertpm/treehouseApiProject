@@ -190,9 +190,29 @@
 	
 
 	/*********************************************************
-	 MAIN WRAP
+	 MAIN WRAP 1000px
 	**********************************************************/
+	.scrim {
+		width: 100%;
+		height: 100%;
+		-webkit-transition-duration: .5s;transition-duration: .5s;
+	}
 
+	.movieWrap:nth-child(odd) > .scrim {
+		background: -webkit-linear-gradient(top left, rgba(50,50,245,0.5), transparent 60%);background: linear-gradient(to bottom right, rgba(50,50,245,0.5), transparent 60%);
+	}
+
+	.movieWrap:nth-child(even) > .scrim {
+		background: -webkit-linear-gradient(top left, rgba(245,50,50,0.5), transparent 60%);background: linear-gradient(to bottom right, rgba(245,50,50,0.5), transparent 60%);
+	}
+
+	.movieWrap:nth-child(3n) > .scrim {
+		background: -webkit-linear-gradient(top left, rgba(50,245,50,0.5), transparent 60%);background: linear-gradient(to bottom right, rgba(50,245,50,0.5), transparent 60%);
+	}
+
+	#scrim0 {
+		padding-top: 5px;
+	}
 	/*** END MAIN WRAP ***************************************/
 
 
@@ -237,7 +257,7 @@
 
 	
 	/*********************************************************
-	MODAL
+	MODAL 1250px
 	**********************************************************/
 	.modal {
 		margin-left: -600px;
