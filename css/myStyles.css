@@ -158,8 +158,8 @@ header h1 a {
 	height: 140px;
 	margin-right: 25px;
 	margin-bottom: 25px;
-	background-repeat: no-repeat !important;
-	background-size: 100% auto !important;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
 	overflow: hidden;
 	border-radius: 2px;
 	border-top: 1px solid rgba(245,245,245,0.7);
