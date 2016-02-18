@@ -85,9 +85,10 @@ var myWebApiProjectScripts = function() {
 			movieCerchSubmit.style.display = "block";
 			
 			modalNavWrap.classList.toggle("arrowFixed", false);
+			modalWrap.style.paddingTop = "15px";
 			
 			items.length = 0;
-			poster.length = 0;
+			title.length = 0;
 			
 			$("#movie0").empty();
 			movieWrap0.style.background = "none";
@@ -160,6 +161,7 @@ var myWebApiProjectScripts = function() {
 		// MAKE RESPONSIVE NAV STICK ON SCROLL
 		if (distance > 45 || distance2 > 45) {
 			modalNavWrap.classList.toggle("arrowFixed", true);
+			modalWrap.style.paddingTop = "75px";
 		}
 	};
 
@@ -172,29 +174,31 @@ var myWebApiProjectScripts = function() {
 	REMOVE SCRIM ON HOVER
 	===============================================*/
 	var scrimScram = function() {
+		
+		if (width > 999) {
+			var scrim = document.getElementsByClassName("scrim");
 
-		var scrim = document.getElementsByClassName("scrim");
-
-		for (var i = 0; i < scrim.length; i++) {
-			
-			scrim[i].marker = i;
-			
-			scrim[i].onmouseover = function() {
-				scrim[this.marker].style.background = "none";
-			}
-			
-			scrim[i].onmouseout = function() {
-				if (this.marker % 2 === 0) {
-					scrim[this.marker].style.background = "webkit-linear-gradient(top left, rgba(50,50,245,0.5), transparent 60%)";
-					scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(50,50,245,0.5), transparent 60%)";
-				} else if (this.marker % 3 === 0) {
-					scrim[this.marker].style.background = "-webkit-linear-gradient(top left, rgba(50,245,50,0.5), transparent 60%)";
-					scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(50,245,50,0.5), transparent 60%)";
-				} else {
-					scrim[this.marker].style.background = "-webkit-linear-gradient(top left, rgba(245,50,50,0.5), transparent 60%)";
-					scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(245,50,50,0.5), transparent 60%)";
+			for (var i = 0; i < scrim.length; i++) {
+				
+				scrim[i].marker = i;
+				
+				scrim[i].onmouseover = function() {
+					scrim[this.marker].style.background = "none";
 				}
-			};
+				
+				scrim[i].onmouseout = function() {
+					if (this.marker % 2 === 0) {
+						scrim[this.marker].style.background = "webkit-linear-gradient(top left, rgba(50,50,245,0.5), transparent 60%)";
+						scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(50,50,245,0.5), transparent 60%)";
+					} else if (this.marker % 3 === 0) {
+						scrim[this.marker].style.background = "-webkit-linear-gradient(top left, rgba(50,245,50,0.5), transparent 60%)";
+						scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(50,245,50,0.5), transparent 60%)";
+					} else {
+						scrim[this.marker].style.background = "-webkit-linear-gradient(top left, rgba(245,50,50,0.5), transparent 60%)";
+						scrim[this.marker].style.background = "linear-gradient(to bottom right, rgba(245,50,50,0.5), transparent 60%)";
+					}
+				};
+			}
 		}
 	};
 
@@ -219,10 +223,10 @@ var myWebApiProjectScripts = function() {
 	var newCerch = document.getElementById("newCerch");
 
 	movieCerch.value = "";
-	newCerch.style.display = "none";
-
-	var items = [];
-	var poster = [];	
+	newCerch.style.display = "none";	
+	
+	var items = [];	
+	var title = [];
 
 	// HANDLE AJAX ERROR
 	$( document ).ajaxError(function() {
@@ -252,9 +256,7 @@ var myWebApiProjectScripts = function() {
 				$.each( data, function( key, val ) {
 					if (key === "Title") {
 						items.push( "<li id='" + key + "'><span class='movieTitle'>" + val + "</span></li>" );
-					} else if (key === "Poster") {
-						poster.push( val );
-						items.unshift( "<li id='" + key + "'><img src='" + val + "'></img></li>" );
+						title.push(val);
 					} else {
 						items.push( "<li id='" + key + "'>" + "<span>" + key + "</span>" + ": " + val + "</li>" );
 					}
@@ -266,9 +268,8 @@ var myWebApiProjectScripts = function() {
 				}
 				
 				// PRINT DATA TO WINDOW
-				for (var i = 0; i < items.length - 6; i++) {
+				for (var i = 0; i < items.length - 7; i++) {
 					$("#movie0").append(items[i]);
-					movieWrap0.style.background = "url('" + poster[0] + "')";
 				}
 			});
 		}
@@ -289,10 +290,9 @@ var myWebApiProjectScripts = function() {
 		movieCerchSubmit.style.display = "block";
 		
 		items.length = 0;
-		poster.length = 0;
+		title.length = 0;
 		
 		$("#movie0").empty();
-		movieWrap0.style.background = "none";
 
 	};
 
@@ -307,10 +307,9 @@ var myWebApiProjectScripts = function() {
 		movieCerchSubmit.style.display = "block";
 		
 		items.length = 0;
-		poster.length = 0;
+		title.length = 0;
 		
 		$("#movie0").empty();
-		movieWrap0.style.background = "none";
 	};
 	//* ========================================= *//
 
@@ -318,27 +317,24 @@ var myWebApiProjectScripts = function() {
 	/*===============================================
 	AJAX HELPER FUNCTION
 	===============================================*/
-	var getAndSet = function(yerl, idee1, idee2){
+	var getAndSet = function(yerl, idee1){
 		$.getJSON( yerl, function( data ) {
 			var items = [];
-			var poster = [];
+			var title = [];
 			
 			// ITERATE OVER AND HANDLE DATA
 			$.each( data, function( key, val ) {
 				if (key === "Title") {
 					items.push( "<li id='" + key + "'><span class='movieTitle'>" + val + "</span></li>" );
-				} else if (key === "Poster") {
-					poster.push( val );
-					items.unshift( "<li id='" + key + "'><img src='" + val + "'></img></li>" );
+					title.push(val);
 				} else {
 					items.push( "<li id='" + key + "'>" + "<span>" + key + "</span>" + ": " + val + "</li>" );
 				}
 			});
 			
 			// PRINT DATA TO WINDOW
-			for (var i = 0; i < items.length - 6; i++) {
+			for (var i = 0; i < items.length - 7; i++) {
 				idee1.append(items[i]);
-				idee2.style.background = "url('" + poster[0] + "')";
 			}
 		});
 	};
@@ -348,135 +344,105 @@ var myWebApiProjectScripts = function() {
 	/*===============================================
 	AS GOOD AS IT GETS
 	===============================================*/
-	var movieWrap1 = document.getElementById("movieWrap1");
-
-	getAndSet("http://www.omdbapi.com/?t=as+good+as+it+gets&y=&plot=full&r=json", $("#movie1"), movieWrap1);
+	getAndSet("http://www.omdbapi.com/?t=as+good+as+it+gets&y=&plot=full&r=json", $("#movie1"));
 	//* ========================================= *//
 
 
 	/*===============================================
 	THE BIG LEBOWSKI
 	================================================*/
-	var movieWrap2 = document.getElementById("movieWrap2");
-
-	getAndSet("http://www.omdbapi.com/?t=the+big+lebowski&y=&plot=full&r=json", $("#movie2"), movieWrap2);
+	getAndSet("http://www.omdbapi.com/?t=the+big+lebowski&y=&plot=full&r=json", $("#movie2"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	WONDER BOYS
 	===============================================*/
-	var movieWrap3 = document.getElementById("movieWrap3");
-
-	getAndSet("http://www.omdbapi.com/?t=wonder+boys&y=&plot=full&r=json", $("#movie3"), movieWrap3);
+	getAndSet("http://www.omdbapi.com/?t=wonder+boys&y=&plot=full&r=json", $("#movie3"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	JOE VERSUS THE VOLCANO
 	===============================================*/
-	var movieWrap4 = document.getElementById("movieWrap4");
-
-	getAndSet("http://www.omdbapi.com/?t=joe+versus+the+volcano&y=&plot=full&r=json", $("#movie4"), movieWrap4);
+	getAndSet("http://www.omdbapi.com/?t=joe+versus+the+volcano&y=&plot=full&r=json", $("#movie4"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	THE BIG YEAR
 	===============================================*/
-	var movieWrap5 = document.getElementById("movieWrap5");
-
-	getAndSet("http://www.omdbapi.com/?t=the+big+year&y=&plot=full&r=json", $("#movie5"), movieWrap5);
+	getAndSet("http://www.omdbapi.com/?t=the+big+year&y=&plot=full&r=json", $("#movie5"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	UNCORKED
 	===============================================*/
-	var movieWrap6 = document.getElementById("movieWrap6");
-
-	getAndSet("http://www.omdbapi.com/?t=at+sachem+farm&y=&plot=full&r=json", $("#movie6"), movieWrap6);
+	getAndSet("http://www.omdbapi.com/?t=at+sachem+farm&y=&plot=full&r=json", $("#movie6"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	FEAR AND LOATHING
 	===============================================*/
-	var movieWrap7 = document.getElementById("movieWrap7");
-
-	getAndSet("http://www.omdbapi.com/?t=fear+and+loathing+in+las+vegas&y=&plot=full&r=json", $("#movie7"), movieWrap7);
+	getAndSet("http://www.omdbapi.com/?t=fear+and+loathing+in+las+vegas&y=&plot=full&r=json", $("#movie7"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	THE ROYAL TENENBAUMS
 	===============================================*/
-	var movieWrap8 = document.getElementById("movieWrap8");
-
-	getAndSet("http://www.omdbapi.com/?t=the+royal+tenenbaums&y=&plot=full&r=json", $("#movie8"), movieWrap8);
+	getAndSet("http://www.omdbapi.com/?t=the+royal+tenenbaums&y=&plot=full&r=json", $("#movie8"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	THE DOORS
 	===============================================*/
-	var movieWrap9 = document.getElementById("movieWrap9");
-
-	getAndSet("http://www.omdbapi.com/?t=the+doors&y=&plot=full&r=json", $("#movie9"), movieWrap9);
+	getAndSet("http://www.omdbapi.com/?t=the+doors&y=&plot=full&r=json", $("#movie9"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	THE SHAWSHANK REDEMPTION
 	===============================================*/
-	var movieWrap10 = document.getElementById("movieWrap10");
-
-	getAndSet("http://www.omdbapi.com/?t=the+shawshank+redemption&y=&plot=full&r=json", $("#movie10"), movieWrap10);
+	getAndSet("http://www.omdbapi.com/?t=the+shawshank+redemption&y=&plot=full&r=json", $("#movie10"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	INGLORIOUS BASTARDS
 	===============================================*/
-	var movieWrap11 = document.getElementById("movieWrap11");
-
-	getAndSet("http://www.omdbapi.com/?t=inglourious+basterds&y=&plot=full&r=json", $("#movie11"), movieWrap11);
+	getAndSet("http://www.omdbapi.com/?t=inglourious+basterds&y=&plot=full&r=json", $("#movie11"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	CATCH ME IF YOU CAN
 	===============================================*/
-	var movieWrap12 = document.getElementById("movieWrap12");
-
-	getAndSet("http://www.omdbapi.com/?t=catch+me+if+you+can&y=&plot=full&r=json", $("#movie12"), movieWrap12);
+	getAndSet("http://www.omdbapi.com/?t=catch+me+if+you+can&y=&plot=full&r=json", $("#movie12"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	ANONYMOUS
 	===============================================*/
-	var movieWrap13 = document.getElementById("movieWrap13");
-
-	getAndSet("http://www.omdbapi.com/?t=anonymous&y=&plot=full&r=json", $("#movie13"), movieWrap13);
+	getAndSet("http://www.omdbapi.com/?t=anonymous&y=&plot=full&r=json", $("#movie13"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	BIRDS OF AMERICA
 	===============================================*/
-	var movieWrap14 = document.getElementById("movieWrap14");
-
-	getAndSet("http://www.omdbapi.com/?t=birds+of+america&y=&plot=full&r=json", $("#movie14"), movieWrap14);
+	getAndSet("http://www.omdbapi.com/?t=birds+of+america&y=&plot=full&r=json", $("#movie14"));
 	//* ========================================= *//
 
 
 	/*==============================================
 	THE PROFESSIONAL
 	===============================================*/
-	var movieWrap15 = document.getElementById("movieWrap15");
-
-	getAndSet("http://www.omdbapi.com/?t=leon+the+professional&y=&plot=full&r=json", $("#movie15"), movieWrap15);
+	getAndSet("http://www.omdbapi.com/?t=leon+the+professional&y=&plot=full&r=json", $("#movie15"));
 	//* ========================================= *//
 };
 	
