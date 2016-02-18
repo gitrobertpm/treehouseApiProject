@@ -224,11 +224,7 @@ var myWebApiProjectScripts = function() {
 	var newCerch = document.getElementById("newCerch");
 
 	movieCerch.value = "";
-	newCerch.style.display = "none";
-
-	var items = [];
-	var poster = [];	
-	var title = [];	
+	newCerch.style.display = "none";	
 
 	// HANDLE AJAX ERROR
 	$( document ).ajaxError(function() {
@@ -237,6 +233,10 @@ var myWebApiProjectScripts = function() {
 
 	// MOVIE SEARCH
 	movieCerchSubmit.onclick = function() {
+		
+		var items = [];
+		var poster = [];	
+		var title = [];
 		
 		var cerchVal = movieCerch.value.toLowerCase();
 		var result = cerchVal.split(" ").join("+");
@@ -331,6 +331,7 @@ var myWebApiProjectScripts = function() {
 		$.getJSON( yerl, function( data ) {
 			var items = [];
 			var poster = [];
+			var title = [];
 			
 			// ITERATE OVER AND HANDLE DATA
 			$.each( data, function( key, val ) {
