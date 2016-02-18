@@ -203,6 +203,30 @@ header h1 a {
 	width: 100%;
 	height: 100%;
 }
+
+.projNote {
+	display: inline-block;
+	vertical-align: top;
+	line-height: 1.75em;
+	max-width: 890px;
+	padding: 20px 25px 35px;
+	border-radius: 2px;
+	border-top: 1px solid rgba(245,245,245,0.7);
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	box-shadow: 1px 1px 2px rgba(50,50,50,0.5);
+}
+
+.projNote h2 {
+	font-family: 'Cinzel', serif;
+	margin-bottom: 20px;
+}
+
+.smiley {
+	display: inline-block;
+	margin-left: 10px;
+	-webkit-transform: rotate(90deg);transform: rotate(90deg);
+	
+}
 /*** END MAIN WRAP ***************************************/
 
 
@@ -378,7 +402,6 @@ MODAL
 	background: rgba(245,50,50,0.7);
 	z-index: 99999;
 }
-
 /*** END MODAL ***************************************/
 
 
@@ -432,6 +455,7 @@ MODAL
 /*** END SEARCH ***************************************/
 
 
+
 /*********************************************************
  FOOTER
 **********************************************************/
@@ -447,7 +471,3 @@ footer {
 	margin: auto;
 }
 /*** END FOOTER ******************************************/
-
-
-
-
