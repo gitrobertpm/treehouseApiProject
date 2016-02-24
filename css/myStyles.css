@@ -119,7 +119,7 @@ header img {
 
 header h1 {
 	display: inline-block;
-	font-family: 'Cinzel', serif;
+	font-family: 'Limelight', serif;
 	font-size: 7.5vw;
 	line-height: 35px;
 	text-align: left;
@@ -217,7 +217,7 @@ header h1 a {
 }
 
 .projNote h2 {
-	font-family: 'Cinzel', serif;
+	font-family: 'Limelight', serif;
 	margin-bottom: 20px;
 }
 
@@ -381,7 +381,7 @@ MODAL
 }
 
 .movieTitle {
-	font-family: 'Cinzel', serif;
+	font-family: 'Limelight', serif;
 	font-size: 7vw;
 }
 
@@ -415,14 +415,14 @@ MODAL
 }
 
 .movieCerchForm input {
-	font-family: 'Cinzel', serif;
+	font-family: 'Limelight', serif;
 	font-size: 1em;
 	text-indent: 10px;
 	width: 100%;
 }
 
 .movieCerchForm label {
-	font-family: 'Cinzel', serif;
+	font-family: 'Limelight', serif;
 }
 
 .movieCerch {
